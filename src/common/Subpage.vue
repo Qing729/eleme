@@ -8,7 +8,7 @@
 export default {
     name: 'sub-page',
     props: {
-        pageId: String
+        subpageId: String
     }
 }
 </script>

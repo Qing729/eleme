@@ -1,10 +1,14 @@
 <template>
+<div>
 	<!--首页面 -->
 	<page pageId="home">
 		<home-header></home-header>
 		<home-banner></home-banner>
 		<home-list></home-list>
 	</page>
+	<!--装载子页面-->
+	<router-view></router-view>
+</div>
 </template>
 
 <script>
