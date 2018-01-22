@@ -5,6 +5,9 @@ Vue.use(Router)
 
 import Home from '../pages/home/Home.vue'
 import Detail from '../pages/home/Detail.vue'
+import Bannerdetail from '../pages/home/Bannerdetail.vue'
+import Addressdetail from '../pages/home/Addressdetail.vue'
+import Searchdetail from '../pages/home/Searchdetail.vue'
 import Discover from '../pages/discover/Discover.vue'
 import Order from '../pages/order/Order.vue'
 import Mine from '../pages/mine/Mine.vue'
@@ -17,8 +20,20 @@ export default new Router({
       component: Home,
       children: [
         {
-          path: 'detail',
+          path: 'detail/:id',
           component: Detail
+        },
+        {
+          path: 'bannerdetail/:id',
+          component: Bannerdetail
+        },
+        {
+          path: 'address',
+          component: Addressdetail
+        },
+        {
+          path: 'search',
+          component: Searchdetail
         }
       ]
     },

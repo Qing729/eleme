@@ -19,4 +19,17 @@ a{
 img{
     display: block;
 }
-
+h1,h2,h3,h4,h5,h6,b,strong{
+	font-weight: 100;
+}
+i,em{
+	font-style: normal;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both;
+}

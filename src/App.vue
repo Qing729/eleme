@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <tabs></tabs>
   </div>
 </template>
@@ -10,8 +12,12 @@ import Tabs from './common/Tabs.vue'
 export default {
 	components: {
 		[Tabs.name]: Tabs
-	}
+  },
+  created(){
+    this.$store.dispatch('location/initLoaction');
+  }
 }
+
 </script>
 
 <style>
