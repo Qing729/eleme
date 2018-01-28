@@ -1,6 +1,7 @@
 <template>
 	<nav class="tabs one-top-px">
 		<router-link class='tab' v-for='(tabItem, index) in tabsData' :key='index' :to='tabItem.path'>
+			<i class="iconfont" :class="tabItem.class"></i>
 			{{tabItem.title}}
 		</router-link>
 	</nav>
@@ -8,14 +9,14 @@
 
 <script>
 	export default{
-		name: 'tabs',
+		name: 'tabs', 
 		data(){
 			return{
 				tabsData: [
-					{title: '首页', path: '/home'},
-					{title: '发现', path: '/discover'},
-					{title: '订单', path: '/order'},
-					{title: '我的', path: '/mine'},
+					{title: '首页', path: '/home', class:'icon-home'},
+					{title: '发现', path: '/discover', class:'icon-discover'},
+					{title: '订单', path: '/order', class:'icon-order'},
+					{title: '我的', path: '/mine', class:'icon-mine'},
 				]
 			}
 		}
@@ -34,9 +35,11 @@
 }
 .tab{
 	flex: 1;
-	text-align: center;
-	line-height: 49px;
 	color: #8e8e93;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 /*.tabs:before{
 	content: '';

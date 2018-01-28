@@ -43,12 +43,12 @@
 				this.$refs.page.pageRefresh();
 			},
 			handleLoadMore(){
-            //让list请求下一页数据
-            this.$refs.list.requestData(()=>{
-                // 请求完成，执行停止加载更多的动画
-                this.$refs.page.endLoadMoreAni();
-            });
-            // 如果请求完成，就刷新滚动视图
+				//让list请求下一页数据
+				this.$refs.list.requestData(()=>{
+					// 请求完成，执行停止加载更多的动画
+					this.$refs.page.endLoadMoreAni();
+				});
+				// 如果请求完成，就刷新滚动视图
 			},
 			//根据页面滚动的位置，控制是否展示search-bar
 			handlePageScroll(y){
@@ -59,6 +59,9 @@
 					this.showSearchBar = false;
 				}
 			}
+		},
+		beforeDestory(){
+			console.log('销毁前home');
 		}
 	}
 </script>

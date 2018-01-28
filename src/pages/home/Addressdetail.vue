@@ -46,8 +46,8 @@ export default {
             //用户在1s内没有输入内容，才发请求
             this.timer = setTimeout(()=>{
                 if(this.keyword){
-                    this.handlegetSearchAddress();
-                    
+                    this.isShow = false;
+                    this.handlegetSearchAddress();                    
                 }else{
                     this.isShow = true;
                 }
@@ -76,7 +76,6 @@ export default {
             .then(data=>{
                 if(data){
                     console.log(data);
-                    this.isShow = false;
                     this.addressList=data;                   
                 }               
             })

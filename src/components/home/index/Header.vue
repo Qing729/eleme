@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-      <div class="address"><router-link to="/address"><p>{{address}}</p></router-link></div>
+      <div class="address"><router-link to="/address"><p><i class="iconfont icon-distance"></i>&nbsp;{{address}}</p></router-link></div>
       <search-bar></search-bar>
   </header>
 </template>
@@ -85,7 +85,7 @@ export default {
     font-size: 0.14rem;
     font-weight: 600;
     line-height: 42px;
-    width: 1.3rem;
+    width: 1.4rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

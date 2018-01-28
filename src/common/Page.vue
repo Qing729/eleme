@@ -42,7 +42,7 @@
 			}
 		},
 		mounted(){
-			    this.pageScroll = new IScroll(this.$refs.page, {
+			this.pageScroll = new IScroll(this.$refs.page, {
 				bounce: true, //弹簧效果
 		        click: true, //打开点击事件
 		        tap: true, //移动端的点击事件
@@ -90,8 +90,12 @@
 			}
 			//home组件需要监听滚动位置
 			this.pageScroll.on('scroll',()=>{
+				console.log('监听中');
 				this.$emit('page-scroll', this.pageScroll.y);
 			})
+		},
+		beforeDestroy(){
+			console.log('销毁前');
 		}
 	}
 </script>

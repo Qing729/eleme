@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <span @click="goback()">&lt;</span>
+        <span class="iconfont icon-left" @click="goback()"></span>
         <h3>{{title}}</h3>
     </header> 
 </template>
@@ -33,13 +33,11 @@ export default {
     z-index: 6;
 }
 .header h3{
-	font-weight: 600;
-	font-size: 0.16rem;
+	font-size: 0.18rem;
 }
 .header span{
     position: absolute;
     left: 0.1rem;
-    font-size: 0.2rem;
-    font-weight: 600;
+    font-size: 0.18rem;
 }
 </style>

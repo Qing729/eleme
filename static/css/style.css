@@ -34,3 +34,18 @@
     transform: scaleY(0.5);
     z-index: 1;
 }
+.one-right-px{
+    position: relative;
+}
+.one-right-px:after{
+	position: absolute;
+    top: 0;
+    right: -1px;
+    content: '';
+    display: block;
+    width: 1;
+    height: 100%;
+    border-right: 1px solid #c8c8c8;
+    transform: scaleY(0.5);
+    z-index: 1; 
+}

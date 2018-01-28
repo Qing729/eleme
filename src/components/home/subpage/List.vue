@@ -1,10 +1,5 @@
 <template>
   <div class="seller-list">
-      <div class="title">
-        <h3 class="one-bottom-px">
-            <span>推荐商家</span>
-        </h3>
-      </div>
       <ul class="list">
         <li class="seller-item one-bottom-px" v-for="(seller, index) in listData" :key="index" @click="goDetail(seller.id)">
             <!-- <router-link class="detail" :to='"/home/detail/"+seller.id'> -->
@@ -43,16 +38,19 @@
 </template>
 
 <script>
-import {getHomeSeller} from '../../../service/HomeService'
+import {getBannerDetail} from '../../../service/HomeService'
 import CharterIcon from '../../../common/CharterIcon.vue'
 import Star from '../../../common/Star.vue'
 import Vuex from 'vuex'
 export default {
-    name: 'home-list',
+    name: 'sub-list',
+    props:{
+        ids: Array
+    },
     data(){
         return{
             listData: [],
-            limit: 12,
+            limit: 8
         }
     },
     components: {
@@ -70,7 +68,7 @@ export default {
     },
     methods: {
         requestData(callback){
-            return getHomeSeller(this.lat, this.lon, this.offset, this.limit)
+            return getBannerDetail(this.lat, this.lon, this.offset, this.limit, this.ids)
             .then((data)=>{
                 this.listData=this.listData.concat(data);
                 console.log(this.listData);
@@ -97,13 +95,13 @@ export default {
     },
     mounted(){
         //初始化请求
-        if(this.lat && this.lon){
+        if(this.lat && this.lon && this.ids){
             this.requestData();
         }
-        //监听经度纬度的变化,重新请求地址
-        this.$watch('lat', ()=>{
-            // console.log('监听到了')
-            if(this.lat && this.lon){
+        this.$watch('ids', ()=>{
+            console.log('监听到了');
+            console.log(this.ids);
+            if(this.lat && this.lon && this.ids){
                 this.listData=[];
                 this.requestData();
             }     
@@ -116,28 +114,7 @@ export default {
 .seller-list{
     width: 100%;
     background: #fff;
-    margin-top: 0.07rem;
-}
-.seller-list .title{
-    background: #fff;
-    height: 0.48rem;
-}
-.seller-list h3{
-    line-height: 0.48rem;
-    height: 0.24rem;
-    width: 1.36rem;
-    margin: 0 auto;
-    border-color: #999;
-    position: relative;
-}
-.seller-list h3 span{
-    position: absolute;
-    display: block;
-    padding: 0 0.1rem;
-    top: 0;
-    left: 0.3rem;
-    background: #fff;
-    z-index: 2;
+    margin-top: 122px;
 }
 .seller-list .list .seller-item{
     box-sizing: border-box;
