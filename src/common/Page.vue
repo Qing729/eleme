@@ -90,12 +90,13 @@
 			}
 			//home组件需要监听滚动位置
 			this.pageScroll.on('scroll',()=>{
-				console.log('监听中');
+				// console.log('监听中');
 				this.$emit('page-scroll', this.pageScroll.y);
 			})
 		},
 		beforeDestroy(){
-			console.log('销毁前');
+			// console.log('销毁前');
+			this.pageScroll.off('scroll');
 		}
 	}
 </script>

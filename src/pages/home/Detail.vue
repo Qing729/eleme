@@ -23,15 +23,19 @@
             </p>
       </div>
       <sub-nav></sub-nav>
-      <div class="menuinfo clearfix">
+      <div class="menuinfo clearfix">  
           <div class="menu">
+              <!-- <sub-scroll> -->
               <ul>
                   <li class="one-bottom-px" v-for="(menu, index) in detailMenuData" :key="index">
                       <a href='javascript:'>{{menu.name}}</a>
                   </li>
               </ul>
+              <!-- </sub-scroll> -->
           </div>
+          
           <div class="info">
+              <!-- <sub-scroll> -->
               <div v-for="(info, index) in detailMenuData" :key="index">            
                     <h3 class="title one-bottom-px">
                         <b>{{info.name}}</b><span>{{info.description}}</span>
@@ -45,10 +49,12 @@
                                 <p>月售{{food.month_sales}}份</p>
                                 <p class="ff6c6c" v-if="food.benefit_text || food.applicable_text"><i>{{food.benefit_text}}</i>{{food.applicable_text}}</p>
                                 <p><span class="orangered">￥{{food.price}}</span><s v-if="food.original_price">￥{{food.original_price}}</s></p>
+                                <span>+</span>
                             </div>
                         </li>
                     </ul>
               </div>
+              <!-- </sub-scroll> -->
           </div>
       </div>
   </sub-page>
@@ -57,6 +63,7 @@
 
 <script>
 import Vuex from 'vuex'
+import Scroller from '../../common/Scroller.vue'
 import CharterIcon from '../../common/CharterIcon.vue'
 import SubPage from '../../common/Subpage.vue'
 import Nav from '../../components/home/subpage/Nav.vue'
@@ -78,7 +85,8 @@ export default {
     components: {
         [SubPage.name]: SubPage,
         [Nav.name]: Nav,
-        [CharterIcon.name]: CharterIcon
+        [CharterIcon.name]: CharterIcon,
+        [Scroller.name]: Scroller
     },
     methods:{
         goback(){
@@ -86,7 +94,7 @@ export default {
         },
         handlePageScroll(y){
             // console.log('y:'+y);
-            if(y<-210){
+            if(y<-215){
                 this.isPosition = true;
             }else{
                 this.isPosition = false;
@@ -134,13 +142,12 @@ export default {
     margin-left: -31px;
 }
 .detailInfo{
-    margin-bottom: 0.1rem;
-    height: 110px;
+    height: 150px;
     text-align: center;
     box-sizing: border-box;
+    padding: 30px 0 10px 0;
 }
 .detailInfo h3{
-    margin-top: 0.3rem;
     font-size: 0.2rem;
     font-weight: 600;
 }
@@ -162,8 +169,10 @@ export default {
     width: 100%;
 }
 .menu{
+    width:20%;
     float: left;
-    width: 20%;
+    /* position: relative;
+    height: 600px; */
 }
 .menu li a{
     display: block;
@@ -178,10 +187,13 @@ export default {
     border-color: rgb(228, 224, 224);
 }
 .info{
+    width: 80%;
     float: left;
-    width: 80%
+    /* position: relative;
+    height: 600px; */
 }
 .info .title{
+    box-sizing: border-box;
     line-height: 0.3rem;
     padding-left: 0.1rem;
     width: 100%;
@@ -210,6 +222,20 @@ export default {
 }
 .info ul li .foodinfo{
     flex: 1;
+    position: relative;
+}
+.info ul li .foodinfo>span{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 18px;
+    height: 18px;
+    background: #0094ff;
+    text-align: center;
+    line-height: 18px;
+    color: #fff;
+    border-radius: 9px;
+    font-size: 14px;
 }
 .info ul li .foodinfo h4{
     font-size: 0.14rem;

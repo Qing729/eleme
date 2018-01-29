@@ -17,7 +17,7 @@
         </div>
         <div class="sear_info" v-show="isShow==2">
             <ul>
-                <li v-for="(item, index) in restaurants" :key="index">
+                <li v-for="(item, index) in restaurants" :key="index" @click="goDetail(item.id)">
                     <img :src="item.image_path" />
                     <div class="one-bottom-px">
                         <strong>{{item.name}}</strong>
@@ -104,6 +104,9 @@ export default {
         searchAction(val){
             this.isSearch = false;
             this.$refs.subsearch.sear_val = val;  
+        },
+        goDetail(id){
+			this.$router.push('/home/detail/'+id);//进入一个新的页面			
         },
         handlegetSearch(){
             getSearchData(this.sear_val, this.lat, this.lon, this.city_id)

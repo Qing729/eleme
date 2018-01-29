@@ -60,7 +60,7 @@
 				}
 			}
 		},
-		beforeDestory(){
+		beforeDestroy(){
 			console.log('销毁前home');
 		}
 	}
