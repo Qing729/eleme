@@ -46,6 +46,6 @@
     width: 1;
     height: 100%;
     border-right: 1px solid #c8c8c8;
-    transform: scaleY(0.5);
+    transform: scaleX(0.5);
     z-index: 1; 
 }

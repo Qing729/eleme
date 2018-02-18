@@ -22,20 +22,15 @@
             </p>
       </div>
       <sub-nav></sub-nav>
-      <div class="menuinfo clearfix">  
-          	
-          <div class="menu" ref='menu'>
-              
+      <div class="menuinfo clearfix">  	
+          <div class="menu" ref='menu'> 
               <ul>
                   <li class="one-bottom-px" v-for="(menu, index) in detailMenuData" :key="index">
                       <a href='javascript:'>{{menu.name}}</a>
                   </li>
-              </ul>
-              
+              </ul>  
           </div>
-          
-          <div class="info" ref='info'>
-              
+          <div class="info" ref='info'>   
               <div v-for="(info, index) in detailMenuData" :key="index">            
                     <h3 class="title one-bottom-px">
                         <b>{{info.name}}</b><span>{{info.description}}</span>
@@ -53,11 +48,8 @@
                             </div>
                         </li>
                     </ul>
-              </div>
-              
+              </div>   
           </div>
-          
-          
       </div>
      </div>
 </div>
@@ -65,7 +57,6 @@
 
 <script>
 import Vuex from 'vuex'
-import Scroller from '../../common/Scroller.vue'
 import CharterIcon from '../../common/CharterIcon.vue'
 import Nav from '../../components/home/subpage/Nav.vue'
 import {getDetailData, getDetailMenuData} from '../../service/HomeService'
@@ -85,8 +76,7 @@ export default {
     },
     components: {
         [Nav.name]: Nav,
-        [CharterIcon.name]: CharterIcon,
-        [Scroller.name]: Scroller
+        [CharterIcon.name]: CharterIcon
     },
     watch:{
         boxY(){
