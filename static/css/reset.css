@@ -1,0 +1,37 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+	touch-action: none;
+	font-size: 0.12rem;
+	overflow: hidden;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+	color: #333;
+	font-size: 0.12rem;
+}
+img{
+	display: block;
+	border: 0;
+}
+h1,h2,h3,h4,h5,h6,b,strong{
+	font-weight: 100;
+}
+i,em{
+	font-style: normal;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    clear: both;
+}
