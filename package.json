@@ -5,7 +5,11 @@
   "author": "",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+=======
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open",
+>>>>>>> b2d82ef3dc6dbdc72e85dc253a36a8f52c98faf3
     "start": "npm run dev",
     "build": "node build/build.js"
   },

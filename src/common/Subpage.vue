@@ -42,7 +42,11 @@ export default {
   },
   mounted() {
     this.pageScroll = new IScroll(this.$refs.subpage, {
+<<<<<<< HEAD
       bounce: false, //弹簧效果
+=======
+      bounce: true, //弹簧效果
+>>>>>>> b2d82ef3dc6dbdc72e85dc253a36a8f52c98faf3
       click: true, //打开点击事件
       tap: true, //移动端的点击事件
       mouseWheel: true, //支持鼠标滚轮事件
