@@ -226,21 +226,12 @@ export function getSearchInfo(offset, limit, keyword, lat, lon, search_item_type
             let resultData = response.data.inside[0]?response.data.inside[0]:response.data.inside[3];
             let result = {
             filter:{
-<<<<<<< HEAD
                 multi:resultData.filter.multi?resultData.filter.multi[0].name:null,
                 single:resultData.filter.single?resultData.filter.single.map(item=>{
                     return{
                         name: item.name
                     }
                 }):null
-=======
-                multi:resultData.filter.multi[0].name,
-                single:resultData.filter.single.map(item=>{
-                    return{
-                        name: item.name
-                    }
-                })
->>>>>>> b2d82ef3dc6dbdc72e85dc253a36a8f52c98faf3
             },
             restaurant:resultData.restaurant_with_foods.map(item=>{
                 return{

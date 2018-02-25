@@ -39,19 +39,11 @@
 				this.isDown = NO_TRIGGER,//是否触发加载更多
 				this.downInfo = '上拉加载更多',
 				this.imgPath = '/static/images/arrow.png'
-<<<<<<< HEAD
 			}		
 		},
 		mounted(){
 			this.pageScroll = new IScroll(this.$refs.page, {
 				bounce: false, //弹簧效果
-=======
-			}
-		},
-		mounted(){
-			this.pageScroll = new IScroll(this.$refs.page, {
-				bounce: true, //弹簧效果
->>>>>>> b2d82ef3dc6dbdc72e85dc253a36a8f52c98faf3
 		        click: true, //打开点击事件
 		        tap: true, //移动端的点击事件
 		        mouseWheel: true, //支持鼠标滚轮事件

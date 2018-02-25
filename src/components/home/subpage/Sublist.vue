@@ -1,10 +1,6 @@
 <template>
   <div class="seller-list">
-<<<<<<< HEAD
       <div class="menu" v-if='filter.multi'>
-=======
-      <div class="menu">
->>>>>>> b2d82ef3dc6dbdc72e85dc253a36a8f52c98faf3
           <ul class="clearfix">
               <li class="one-right-px">{{filter.multi}}</li>
               <li v-for="(item, s_index) in filter.single" :key="s_index">{{item.name}}</li>
