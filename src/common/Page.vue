@@ -43,7 +43,7 @@
 		},
 		mounted(){
 			this.pageScroll = new IScroll(this.$refs.page, {
-				bounce: true, //弹簧效果
+				bounce: false, //弹簧效果
 		        click: true, //打开点击事件
 		        tap: true, //移动端的点击事件
 		        mouseWheel: true, //支持鼠标滚轮事件
