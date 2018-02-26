@@ -39,7 +39,7 @@
 				this.isDown = NO_TRIGGER,//是否触发加载更多
 				this.downInfo = '上拉加载更多',
 				this.imgPath = '/static/images/arrow.png'
-			}
+			}		
 		},
 		mounted(){
 			this.pageScroll = new IScroll(this.$refs.page, {

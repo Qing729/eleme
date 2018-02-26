@@ -1,7 +1,6 @@
 <template>
-<div>
-    <sub-nav v-show="isPosition"></sub-nav>
-  <sub-page subpageId="detail" @page-scroll="handlePageScroll">
+<div id="detail">
+  	<div class="detail-scroll" ref='box'>
       <header class="header">
           <div class="logo">
               <img :src="detailData.img"/>
@@ -23,19 +22,15 @@
             </p>
       </div>
       <sub-nav></sub-nav>
-      <div class="menuinfo clearfix">  
-          <div class="menu">
-              <!-- <sub-scroll> -->
+      <div class="menuinfo clearfix">  	
+          <div class="menu" ref='menu'> 
               <ul>
                   <li class="one-bottom-px" v-for="(menu, index) in detailMenuData" :key="index">
                       <a href='javascript:'>{{menu.name}}</a>
                   </li>
-              </ul>
-              <!-- </sub-scroll> -->
+              </ul>  
           </div>
-          
-          <div class="info">
-              <!-- <sub-scroll> -->
+          <div class="info" ref='info'>   
               <div v-for="(info, index) in detailMenuData" :key="index">            
                     <h3 class="title one-bottom-px">
                         <b>{{info.name}}</b><span>{{info.description}}</span>
@@ -53,19 +48,16 @@
                             </div>
                         </li>
                     </ul>
-              </div>
-              <!-- </sub-scroll> -->
+              </div>   
           </div>
       </div>
-  </sub-page>
+     </div>
 </div>
 </template>
 
 <script>
 import Vuex from 'vuex'
-import Scroller from '../../common/Scroller.vue'
 import CharterIcon from '../../common/CharterIcon.vue'
-import SubPage from '../../common/Subpage.vue'
 import Nav from '../../components/home/subpage/Nav.vue'
 import {getDetailData, getDetailMenuData} from '../../service/HomeService'
 export default {
@@ -73,7 +65,7 @@ export default {
         return{
             detailData:{},
             detailMenuData:[],
-            isPosition: false
+           	boxY: ''
         }
     },
     computed: {
@@ -83,23 +75,19 @@ export default {
         })
     },
     components: {
-        [SubPage.name]: SubPage,
         [Nav.name]: Nav,
-        [CharterIcon.name]: CharterIcon,
-        [Scroller.name]: Scroller
+        [CharterIcon.name]: CharterIcon
+    },
+    watch:{
+        boxY(){
+            console.log(this.boxY);
+            this.$refs.box.scrollTo(0,this.boxY)
+        }
     },
     methods:{
         goback(){
             this.$router.back();
-        },
-        handlePageScroll(y){
-            // console.log('y:'+y);
-            if(y<-215){
-                this.isPosition = true;
-            }else{
-                this.isPosition = false;
-            }
-		}
+        }
     },
     mounted(){
         getDetailData(this.$route.params.id, this.lat, this.lon)
@@ -113,14 +101,25 @@ export default {
             this.detailMenuData=data;
             console.log(data);
         })
+        let self=this;
+        this.$refs.info.onscroll=function(ev){
+//      	console.log(ev);
+            console.log(ev.srcElement.scrollTop);
+        	self.boxY=ev.srcElement.scrollTop/2;
+        }
     }
-
 }
 </script>
 
 <style scoped>
 #detail{
     background: #fff;
+    position: relative;
+    z-index: 9;
+}
+.detail-scroll{
+	overflow-y: auto;
+	height: 100vh;
 }
 .header{
     height: 65px;
@@ -167,12 +166,13 @@ export default {
 }
 .menuinfo{
     width: 100%;
+    height: 6.01rem;
 }
 .menu{
     width:20%;
     float: left;
-    /* position: relative;
-    height: 600px; */
+    overflow-y: auto;
+	height: 100%;
 }
 .menu li a{
     display: block;
@@ -189,8 +189,8 @@ export default {
 .info{
     width: 80%;
     float: left;
-    /* position: relative;
-    height: 600px; */
+    overflow: auto;
+	height: 100%;
 }
 .info .title{
     box-sizing: border-box;

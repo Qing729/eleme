@@ -1,6 +1,6 @@
 <template>
   <div class="seller-list">
-      <div class="menu">
+      <div class="menu" v-if='filter.multi'>
           <ul class="clearfix">
               <li class="one-right-px">{{filter.multi}}</li>
               <li v-for="(item, s_index) in filter.single" :key="s_index">{{item.name}}</li>
