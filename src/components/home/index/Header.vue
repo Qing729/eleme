@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-      <div class="address"><router-link to="/address"><p><i class="iconfont icon-distance"></i>&nbsp;{{address}}</p></router-link></div>
+      <div class="address"><router-link to="/home/address"><p><i class="iconfont icon-distance"></i>&nbsp;{{address}}</p></router-link></div>
       <search-bar></search-bar>
   </header>
 </template>

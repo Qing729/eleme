@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="home">
 	<!--首页面 -->
 	<page pageId="home" ref='page' :canLoadMore="true" @load-more-action="handleLoadMore" @page-scroll="handlePageScroll">
 		<home-header></home-header>
@@ -67,6 +67,10 @@
 </script>
 
 <style>
+	.home{
+		width: 100%;
+		height: 100%;
+	}
 	#home{
 		background: #f5f5f5;
 	}

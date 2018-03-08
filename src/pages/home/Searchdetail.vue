@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="searchdetail">
     <sub-search @getVal='handlegetVal' @startSearch='search' ref="subsearch"></sub-search>
     <nav-list v-show="isShow==3"></nav-list>
     <sub-page subpageId="searchdetail" ref="subpage" @load-more-action="handleLoadMore" :canLoadMore="isShow==3">
@@ -184,6 +184,11 @@ export default {
 </script>
 
 <style scoped>
+.searchdetail{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
 #searchdetail{
     background: #fff;
     top: 0.48rem;

@@ -5,14 +5,16 @@
   "author": "",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --host 10.36.140.119 --inline --config build/webpack.dev.conf.js --open",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
     "iscroll": "^5.2.0",
+    "lazy-vue": "^1.0.2",
     "vue": "^2.5.2",
+    "vue-lazyload": "^1.2.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

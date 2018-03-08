@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="bannerdetail">
   <header-app :title="title" @goback="handlegoback"></header-app>
   <sub-menu :menuData='menuData' @select="handleselect"></sub-menu>
   <sub-nav></sub-nav>
@@ -93,6 +93,11 @@ export default {
 </script>
 
 <style scoped>
+.bannerdetail{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
 #bannerdetail{
     background: #fff;
 }

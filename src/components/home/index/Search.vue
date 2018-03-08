@@ -1,6 +1,6 @@
 <template>
   <div class="search" :class="{active: isActive}">
-      <router-link to="/search">搜索商家、商品名称</router-link>
+      <router-link to="/home/search">搜索商家、商品名称</router-link>
   </div>
 </template>
 

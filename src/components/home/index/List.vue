@@ -9,7 +9,7 @@
         <li class="seller-item one-bottom-px" v-for="(seller, index) in listData" :key="index" @click="goDetail(seller.id)">
             <!-- <router-link class="detail" :to='"/home/detail/"+seller.id'> -->
             <div class="seller-logo">
-                <img :src="seller.img">
+                <img v-lazy="seller.img">
             </div>
             <div class="seller-info">
                 <h4>{{seller.name}}</h4>
@@ -47,6 +47,13 @@ import {getHomeSeller} from '../../../service/HomeService'
 import CharterIcon from '../../../common/CharterIcon.vue'
 import Star from '../../../common/Star.vue'
 import Vuex from 'vuex'
+import Vue from 'vue'
+// require('lazy-vue');
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad,{
+    error:'./static/images/ajax-loader.gif',
+    loading:'./static/images/ajax-loader.gif'
+})
 export default {
     name: 'home-list',
     data(){

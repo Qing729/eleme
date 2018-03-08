@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="addressdetail">
     <header-app :title="title" @goback="handlegoback"></header-app>
     <sub-page subpageId="addressdetail">
         <div class="address_sear">
@@ -102,6 +102,11 @@ export default {
 </script>
 
 <style scoped>
+.addressdetail{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
 #addressdetail{
     background: #f2f2f2; 
     top: 0.42rem;
